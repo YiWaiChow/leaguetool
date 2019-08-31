@@ -26,7 +26,7 @@ class ScoreAVLTree:
             root.left  = self.insert(root.left, champion)
         else:
             root.right  =self.insert(root.right, champion)
-        root.height = 1 + max(self.getheight(root.left),self.getheight(root.right))
+        root.height = 1 + max(self.get_height(root.left),self.get_height(root.right))
         bf = self.balance_factor(root)
         if bf > 1 and champion.get_score() < root.left.score:
             return self.rR(root)
@@ -56,8 +56,8 @@ class ScoreAVLTree:
         temp.left = root
         root.right = temp1
 
-        root.height = 1 +(max((self.getheight(root.left)), (self.getheight(root.right))))
-        temp.height = 1 +(max((self.getheight(temp.left)), (self.getheight(temp.right))))
+        root.height = 1 +(max((self.get_height(root.left)), (self.get_height(root.right))))
+        temp.height = 1 +(max((self.get_height(temp.left)), (self.get_height(temp.right))))
         return temp
 
     def rR(self, root):
@@ -65,8 +65,8 @@ class ScoreAVLTree:
         temp2 = temp.right
         temp.right = root
         root.left = temp2
-        root.height = 1 + (max((self.getheight(root.left)), (self.getheight(root.right))))
-        temp.height = 1 + (max((self.getheight(temp.left)), (self.getheight(temp.right))))
+        root.height = 1 + (max((self.get_height(root.left)), (self.get_height(root.right))))
+        temp.height = 1 + (max((self.get_height(temp.left)), (self.get_height(temp.right))))
 
         return y
 
