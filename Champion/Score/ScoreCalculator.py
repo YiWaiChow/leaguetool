@@ -3,3 +3,4 @@ class Scorecalculator:
         self.champlist = champlist
         self.game = game
         self.user = user
+
