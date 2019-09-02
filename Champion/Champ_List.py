@@ -1,4 +1,4 @@
-from Champion import Champions
+from Champion.Champion import Champions
 
 
 class ChampionList:
@@ -37,3 +37,12 @@ class ChampionList:
             if attribute in x.attribute:
                 temp_list.append(x)
         return temp_list
+
+    def find_champ(self, name):
+        champ_found = None
+        for x in self.list:
+            if x.name == name:
+                champ_found = x
+        return champ_found
+    def get_champ_list(self):
+        return self.list

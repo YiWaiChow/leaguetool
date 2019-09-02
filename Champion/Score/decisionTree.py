@@ -12,8 +12,16 @@ class Treenode:
     def add_champ(self, champion):
         self.champlist.append(champion)
 
+    def get_champ_list(self):
+        return self.champlist
+
+    def get_score(self, root):
+        if not root:
+            return 0
+        return root.score
+
 class ScoreAVLTree:
-    "store score as a node in the tree, each node has a list of champion with that score"
+    "store score as a node in the tree, each node has a list of champion with that score  AVL TREE WITH EACH node having a champion list that have the score of the tree node"
     def insert(self, root, champion):
         if not root:
             x = Treenode(champion.get_score())
@@ -23,22 +31,25 @@ class ScoreAVLTree:
             root.add_champ(champion)
             return root
         elif champion.get_score() < root.score:
-            root.left  = self.insert(root.left, champion)
+            root.left = self.insert(root.left, champion)
         else:
-            root.right  =self.insert(root.right, champion)
-        root.height = 1 + max(self.get_height(root.left),self.get_height(root.right))
+            root.right = self.insert(root.right, champion)
+        root.height = 1 + max(self.get_height(root.left), self.get_height(root.right))
         bf = self.balance_factor(root)
-        if bf > 1 and champion.get_score() < root.left.score:
-            return self.rR(root)
-        if bf <-1 and champion.get_score() > root.right.score:
-            return self.lR(root)
-        if bf > 1 and champion.get_score() >root.left.score:
-            root.left = self.lr(root.left)
-            return self.rR(root)
-        if bf <-1 and champion.get_score() < root.right.score:
-            root.right = self.rR(root.right)
-            return self.lr(root)
+        if root.left:
+            if bf > 1 and champion.get_score() < root.left.score:
+                return self.rR(root)
+            if bf > 1 and champion.get_score() > root.left.score:
+                root.left = self.lr(root.left)
+                return self.rR(root)
+        if root.right:
+            if bf < -1 and champion.get_score() > root.right.score:
+                return self.lr(root)
+            if bf <-1 and champion.get_score() < root.right.score:
+                root.right = self.rR(root.right)
+                return self.lr(root)
         return root
+
 
     def balance_factor(self, root):
         if not root:
@@ -71,7 +82,15 @@ class ScoreAVLTree:
         return y
 
     def max_score(self, root):
+        if not root or not root.right:
+            return root
+        return self.max_score(root.right)
+
+    def preOrder(self, root):
+
         if not root:
-            return None
-        self.max_score(root.right)
-        return root
+            return
+
+        print("{0} ".format(root.score), end="")
+        self.preOrder(root.left)
+        self.preOrder(root.right)

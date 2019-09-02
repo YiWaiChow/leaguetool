@@ -1,7 +1,8 @@
 class User:
-    def __init__(self):
+    def __init__(self, name):
         self.pool = []
         self.preference = []
+        self.name = name
 
     def get_pool(self):
         return self.pool
@@ -14,9 +15,6 @@ class User:
             self.preference.append(prefer)
         self.preference.sort()
 
-    def add_champ_to_pool(self, name):
-        if type(name) == list:
-            for x in name:
-                self.pool.append(ChampionList.find(x))
-        if type(name) == str:
-            self.pool.append(ChampionList.find(name))
+    def add_champ_to_pool(self, champ):
+        self.pool.append(champ)
+

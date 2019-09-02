@@ -6,12 +6,12 @@ class Scorecalculator:
         "each number in attributelist represent each of the attribute score , lowest is the attribute needed"
         self.attributelist =[0, 0, 0, 0]
 
-    def Att_in_need(self):
+    def att_in_need(self):
         for x in self.game.achamp:
             if x:
                 for att in x.attribute:
                     if att == "AD":
-                        self.attributelist[0] -= 1
+                        self.attributelist[0] += 1
                     if att == "AP":
                         self.attributelist[1] += 1
                     if att == "AR":
@@ -22,14 +22,15 @@ class Scorecalculator:
             if x:
                 for att in x.attribute:
                     if att == "AD":
-                        self.attributelist[0] -= 1
-                    if att == "AP":
-                        self.attributelist[1] -= 1
-                    if att == "AR":
                         self.attributelist[2] -= 1
-                    if att == "MR":
+                    if att == "AP":
                         self.attributelist[3] -= 1
+                    if att == "AR":
+                        self.attributelist[1] -= 1
+                    if att == "MR":
+                        self.attributelist[0] -= 1
         min_score = min(self.attributelist)
+        print(self.attributelist)
         att_in_need_list =[]
         position = 0
         for x in self.attributelist:
@@ -45,11 +46,16 @@ class Scorecalculator:
             position += 1
         return att_in_need_list
 
-    def Calculate_ChampScore(self, list):
-
-        for x in self.champlist:
+    def calculate_champscore(self, list):
+        for x in self.champlist.get_champ_list():
             score = 0
+            if x in self.user.get_pool():
+                score += 1
             for att in list:
-                if att in x.attribute:
-                    score += 1
-            x.add_score = score
+                for y in x.attribute:
+                    if y == self.user.preference:
+                        score += 1
+                    if y == att:
+                        score += 1
+            x.add_score(score)
+        return self.champlist

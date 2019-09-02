@@ -23,7 +23,6 @@ class Champions:
             if x is not None:
                 print(x)
 
-
-
-
+    def __repr__(self):
+        return self.name
 
