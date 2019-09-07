@@ -30,7 +30,6 @@ class Scorecalculator:
                     if att == "MR":
                         self.attributelist[0] -= 1
         min_score = min(self.attributelist)
-        print(self.attributelist)
         att_in_need_list =[]
         position = 0
         for x in self.attributelist:

@@ -10,13 +10,14 @@ class ChampionList:
         alistar = Champions("Alistar", ["MR", "AR"])
         amumu = Champions("Amumu", ["MR, AR"])
         Anivia = Champions("Anivia", ["AP"])
-        Annie = Champions("Annnie", ["AP"])
+        Annie = Champions("Annie", ["AP"])
         Ashe = Champions("Ashe", ["AD"])
-        AurelionSol = Champions("Aurelion Sol", ["AP"] )
+        AurelionSol = Champions("Aurelion_Sol", ["AP"] )
         Azir = Champions("Azir", ["AP"])
         Bard = Champions("Bard", ["MR", "AR"])
         Blitzcrank = Champions("Blitzcrank", ["MR", "AR"])
         Brand = Champions("Brand", ["AP"])
+        Braum = Champions("Braum", ["AR", "MR"])
         self.list.append(aatrox)
         self.list.append(ahri)
         self.list.append(akali)
@@ -30,6 +31,7 @@ class ChampionList:
         self.list.append(Bard)
         self.list.append(Blitzcrank)
         self.list.append(Brand)
+        self.list.append(Braum)
 
     def champ_w_attribute(self, attribute):
         temp_list = []
