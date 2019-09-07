@@ -93,7 +93,7 @@ class ChampionPage(tk.Frame):
         CP = self.controller.get_page(Championselectionpage)
         self.champ = CP.champ
         champ = self.CL.find_champ(self.champ)
-        x = r"C:\Users\Jimmy\PycharmProjects\leaguetool\character pic\{}Square.png".format(self.champ)
+        x = "character pic/{}Square.png".format(self.champ)
         photo = tk.PhotoImage(file=x)
         if self.a1 == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(1, 'a'),
