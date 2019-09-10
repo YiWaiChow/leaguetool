@@ -70,24 +70,23 @@ class ChampionPage(tk.Frame):
                              command=lambda:[self.specific_position(4, 'e'), controller.show_frame(Championselectionpage)])
         echamp_5 = tk.Button(self, text="select enemy Champ5",
                              command=lambda:[self.specific_position(5, 'e'), controller.show_frame(Championselectionpage)])
-        achamp_1.grid(row=0, padx=50, pady=50)
-        achamp_2.grid(row=1, padx=50, pady=50)
-        achamp_3.grid(row=2, padx=50, pady=50)
-        achamp_4.grid(row=3, padx=50, pady=50)
-
-        echamp_1.grid(row=0, column=2, padx=50, pady=50)
-        echamp_2.grid(row=1, column=2, padx=50, pady=50)
-        echamp_3.grid(row=2, column=2, padx=50, pady=50)
-        echamp_4.grid(row=3, column=2, padx=50, pady=50)
-        echamp_5.grid(row=4, column=2, padx=50, pady=50)
+        achamp_1.grid(row=0, column=0, padx=50, pady=50, sticky="nsew")
+        achamp_2.grid(row=0, column=1, padx=50, pady=50, sticky="nsew")
+        achamp_3.grid(row=0, column=2, padx=50, pady=50, sticky="nsew")
+        achamp_4.grid(row=0, column=3, padx=50, pady=50, sticky="nsew")
+        echamp_1.grid(row=1, column=0, padx=50, pady=50, sticky="nsew")
+        echamp_2.grid(row=1, column=1, padx=50, pady=50, sticky="nsew")
+        echamp_3.grid(row=1, column=2, padx=50, pady=50, sticky="nsew")
+        echamp_4.grid(row=1, column=3, padx=50, pady=50, sticky="nsew")
+        echamp_5.grid(row=1, column=4, padx=50, pady=50, sticky="nsew")
 
         poolbutton = tk.Button(self, text="MainChamp",command=lambda:[self.specific_position(0, 'm'),
                                                                       controller.show_frame(Championselectionpage)])
-        poolbutton.grid(row=4, padx=50, pady=50)
+        poolbutton.grid(row=0, column = 4, padx=50, pady=50)
         CPP = self.controller.get_page(recommandationpage)
         resultbutton = tk.Button(self, text="RESULT" , command=lambda: [recommandationpage.outputrecommanded(CPP),
                                                                      controller.show_frame(recommandationpage)])
-        resultbutton.grid(row=6, column =2, padx=50, pady=50)
+        resultbutton.grid(row=2, column=2, padx=50, pady=50)
 
     def get_champ(self):
         CP = self.controller.get_page(Championselectionpage)
@@ -99,63 +98,63 @@ class ChampionPage(tk.Frame):
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(1, 'a'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=0, padx=50, pady=50)
+            cb.grid(row=0, column=0, padx=50, pady=50)
             self.CG.add_champ(champ, 1, 'a')
 
         if self.a2 == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(2, 'a'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=1, padx=50, pady=50)
+            cb.grid(row=0, column=1, padx=50, pady=50)
             self.CG.add_champ(champ, 2,'a')
         if self.a3 == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(3, 'a'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=2, padx=50, pady=50)
+            cb.grid(row=0, column=2, padx=50, pady=50)
             self.CG.add_champ(champ, 3,'a')
         if self.a4 == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(4, 'a'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=3, padx=50, pady=50)
+            cb.grid(row=0, column=3, padx=50, pady=50)
             self.CG.add_champ(champ, 4,'a')
 
         if self.e1 == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(1, 'e'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=0,column=2,padx=50, pady=50)
+            cb.grid(row=1,column=0,padx=50, pady=50)
             self.CG.add_champ(champ, 1,'e')
         if self.e2 == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(2, 'e'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=1, column=2, padx=50, pady=50)
+            cb.grid(row=1, column=1, padx=50, pady=50)
             self.CG.add_champ(champ, 2,'e')
         if self.e3 == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(3, 'e'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=2, column=2, padx=50, pady=50)
+            cb.grid(row=1, column=2, padx=50, pady=50)
             self.CG.add_champ(champ, 3, 'e')
         if self.e4 == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(4, 'e'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=3, column=2,  padx=50, pady=50)
+            cb.grid(row=1, column=3,  padx=50, pady=50)
             self.CG.add_champ(champ,4 ,'e')
         if self.e5 == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(5, 'e'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=4, column=2, padx=50, pady=50)
+            cb.grid(row=1, column=4, padx=50, pady=50)
             self.CG.add_champ(champ,5, 'e')
         if self.a == 1:
             cb = tk.Button(self, image=photo,command=lambda: [self.specific_position(0, 'm'),
                                                               self.controller.show_frame(Championselectionpage)])
             cb.image = photo
-            cb.grid(row=4, padx=50, pady=50)
+            cb.grid(row=0, column =4, padx=50, pady=50)
             self.user.add_prefer(champ)
 
     def reset_pos(self):
@@ -234,12 +233,16 @@ class recommandationpage(tk.Frame):
         MAX_node = SAT.max_score(TopNode)
         self.final_list = MAX_node.get_champ_list()
         position = 1
+        r = 0
         for x in self.final_list:
             x = "character pic/{}Square.png".format(x.name)
             photo = tk.PhotoImage(file=x)
             champion = tk.Label(self, image=photo)
             champion.image= photo
-            champion.grid(row= position, column= 1)
+            champion.grid(row=r, column=position)
+            if position == 5:
+                r +=1
+                position =1
             position += 1
 
 
