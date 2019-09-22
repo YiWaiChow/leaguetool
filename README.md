@@ -1,5 +1,6 @@
 # leaguetool
-just a league of legend champ selector
+just a league of legend champ selector\
+currently support up to champions with name starting with a-b
 
 
 **milestone** 
