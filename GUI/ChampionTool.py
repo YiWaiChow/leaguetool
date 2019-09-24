@@ -4,6 +4,7 @@ import tkinter as tk
 import GUI.Championselectionpage as gc
 from GUI.mainpage import ChampionPage
 from GUI.recommandationpage import recommandationpage
+import GUI.helppage
 
 
 class ChampionTool(tk.Tk):
@@ -16,7 +17,7 @@ class ChampionTool(tk.Tk):
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
         self.frames = {}
-        for F in (recommandationpage, ChampionPage, gc.Championselectionpage):
+        for F in (GUI.helppage.HelpPage,recommandationpage, ChampionPage, gc.Championselectionpage):
             frame = F(container, self)
             self.frames[F] = frame
             frame.grid(row=0, column=0, sticky="nsew")

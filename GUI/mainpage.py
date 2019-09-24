@@ -6,6 +6,7 @@ import GUI.Championselectionpage
 from GUI.recommandationpage import recommandationpage
 from Game.CurrentGame import Game
 from User.User import User
+import GUI.helppage
 
 
 class ChampionPage(tk.Frame):
@@ -78,6 +79,8 @@ class ChampionPage(tk.Frame):
                                                                         controller.show_frame(x)])
         poolbutton.grid(row=0, column=4, padx=50, pady=50)
         cpp = self.controller.get_page(recommandationpage)
+        helpbutton = tk.Button(self, text="Press for HELP", command=lambda:controller.show_frame(GUI.helppage.HelpPage))
+        helpbutton.place(relx=0.8, rely=0.75, anchor="c")
         resultbutton = tk.Button(self, text="RESULT", command=lambda: [recommandationpage.outputrecommanded(cpp),
                                                                        controller.show_frame(recommandationpage)])
         resultbutton.place(relx=0.665, rely=0.75, anchor="c")
