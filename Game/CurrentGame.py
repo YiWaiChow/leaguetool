@@ -11,3 +11,14 @@ class Game:
             self.achamp[position-1] = champ
         if team == "e":
             self.echamp[position-1] = champ
+
+    def is_none(self):
+        a_found=0
+        e_found=0
+        for x in self.achamp:
+            if x is not None:
+                a_found = 1
+        for y in self.echamp:
+            if y is not None:
+                e_found = 1
+        return a_found == 0 and e_found == 0
